@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ink: #07060c;
+    --ink-2: #0d0a18;
+    --violet-deep: #1b0f3d;
+    --violet: #3a1c73;
+    --indigo: #5b6bff;
+    --indigo-2: #8b6bff;
+    --cyan: #6fd6ff;
+    --wa-green: #25d366;
+    --paper: #f4f2fb;
+    --text: #eee9fb;
+    --text-dim: #a99fc7;
+    --text-faint: #756d92;
+  }
+
+  body {
+    @apply bg-ink text-text font-sans antialiased overflow-x-hidden m-0 p-0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight text-paper;
+  }
+}
+
+@layer components {
+  /* Premium glassmorphism utility classes */
+  .glass-panel {
+    @apply bg-white/[0.04] backdrop-blur-md border border-white/[0.08] shadow-card;
+  }
+  
+  .glass-navbar {
+    @apply bg-ink-2/80 backdrop-blur-lg border-b border-white/[0.08];
+  }
+
+  .text-gradient-indigo {
+    @apply bg-gradient-to-r from-indigo-2 via-cyan to-paper bg-clip-text text-transparent;
+  }
+
+  .text-gradient-violet {
+    @apply bg-gradient-to-r from-paper via-indigo-2 to-violet bg-clip-text text-transparent;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+}
