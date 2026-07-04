@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, TrendingUp, Quote } from 'lucide-react';
+import { ArrowRight, CheckCircle2, TrendingUp, Quote, Sparkles } from 'lucide-react';
 import { SEO } from '@/components/common/SEO';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { CTASection } from '@/components/sections/CTASection';
@@ -8,6 +8,37 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { CASE_STUDIES_CONFIG } from '@/config/milestones';
+import { cn } from '@/utils/cn';
+
+const getCaseStudyTheme = (idx: number) => {
+  const themes = [
+    {
+      bgGradient: "from-[#141842]/95 via-[#0b0e26]/90 to-[#050612]/95",
+      borderColor: "border-[#5b6bff]/40 hover:border-[#5b6bff]/80 shadow-[0_0_50px_rgba(91,107,255,0.25)]",
+      orbColor: "bg-[#5b6bff]/15",
+      accentText: "text-[#8b6bff]",
+      badgeBg: "bg-[#5b6bff]/20 text-[#8b6bff] border-[#5b6bff]/40",
+      quoteIconColor: "text-[#60a5fa]/40",
+    },
+    {
+      bgGradient: "from-[#052e1b]/95 via-[#041c10]/90 to-[#030d08]/95",
+      borderColor: "border-[#10b981]/40 hover:border-[#10b981]/80 shadow-[0_0_50px_rgba(16,185,129,0.25)]",
+      orbColor: "bg-[#10b981]/15",
+      accentText: "text-[#34d399]",
+      badgeBg: "bg-[#10b981]/20 text-[#34d399] border-[#10b981]/40",
+      quoteIconColor: "text-[#34d399]/40",
+    },
+    {
+      bgGradient: "from-[#381e0a]/95 via-[#1f1005]/90 to-[#0e0702]/95",
+      borderColor: "border-[#f59e0b]/40 hover:border-[#f59e0b]/80 shadow-[0_0_50px_rgba(245,158,11,0.25)]",
+      orbColor: "bg-[#f59e0b]/15",
+      accentText: "text-[#fbbf24]",
+      badgeBg: "bg-[#f59e0b]/20 text-[#fbbf24] border-[#f59e0b]/40",
+      quoteIconColor: "text-[#fbbf24]/40",
+    },
+  ];
+  return themes[idx % themes.length];
+};
 
 export const CaseStudies: React.FC = () => {
   return (
@@ -26,63 +57,80 @@ export const CaseStudies: React.FC = () => {
 
       <section className="py-16 max-w-site mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
         <div className="space-y-12">
-          {CASE_STUDIES_CONFIG.map((study) => (
-            <Card key={study.slug} variant="glass" className="p-6 sm:p-10 border-white/[0.08] hover:border-indigo/40">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-8 space-y-6">
-                  <div className="flex items-center gap-4">
-                    {study.logo && (
-                      <div className="h-12 px-3 bg-white/[0.04] rounded border border-white/[0.08] flex items-center justify-center">
-                        <img src={study.logo} alt={study.client} className="max-h-8 object-contain" />
-                      </div>
-                    )}
-                    <Badge variant="cyan">{study.industry}</Badge>
+          {CASE_STUDIES_CONFIG.map((study, idx) => {
+            const theme = getCaseStudyTheme(idx);
+            return (
+              <div
+                key={study.slug}
+                className={cn(
+                  "relative rounded-[36px] p-8 sm:p-12 bg-gradient-to-br border-2 group overflow-hidden transition-all duration-500 backdrop-blur-2xl",
+                  theme.bgGradient,
+                  theme.borderColor
+                )}
+              >
+                <div className={cn("absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl pointer-events-none", theme.orbColor)} />
+                <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                  <div className="lg:col-span-8 space-y-6">
+                    <div className="flex flex-wrap items-center gap-3">
+                      {study.logo && (
+                        <div className="h-12 px-3 bg-white/[0.06] rounded-xl border border-white/[0.1] flex items-center justify-center shadow-sm">
+                          <img src={study.logo} alt={study.client} className="max-h-8 object-contain" />
+                        </div>
+                      )}
+                      <span className={cn("inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-display font-bold uppercase tracking-widest border", theme.badgeBg)}>
+                        🏆 ROI PROOF
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <CheckCircle2 className="w-3.5 h-3.5" /> {study.industry}
+                      </span>
+                    </div>
+
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white tracking-tight leading-tight">
+                      {study.headline}
+                    </h2>
+
+                    <p className="text-sm sm:text-base text-text-dim leading-relaxed font-normal">
+                      <strong className="text-paper">The Challenge:</strong> {study.challenge}
+                    </p>
+
+                    <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 border-t border-white/[0.1]">
+                      {study.metrics.map((m, mIdx) => (
+                        <div key={mIdx} className="bg-black/40 border border-white/10 p-3 sm:p-4 rounded-2xl text-center shadow-inner">
+                          <span className="text-xl sm:text-3xl font-display font-black text-emerald-400 block tracking-tight">{m.value}</span>
+                          <span className="text-[11px] sm:text-xs text-text-dim font-medium uppercase tracking-wider mt-1 block">{m.label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2 pt-2">
+                      <span className="text-xs font-semibold text-text-faint uppercase tracking-wider mr-2">Products Used:</span>
+                      {study.productsUsed.map((p) => (
+                        <Badge key={p} variant="indigo" size="sm">{p}</Badge>
+                      ))}
+                    </div>
                   </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-display font-bold text-paper">
-                    {study.headline}
-                  </h2>
-
-                  <p className="text-sm sm:text-base text-text-dim leading-relaxed">
-                    <strong>Challenge:</strong> {study.challenge}
-                  </p>
-
-                  <div className="grid grid-cols-3 gap-4 py-4 border-y border-white/[0.08]">
-                    {study.metrics.map((m, idx) => (
-                      <div key={idx}>
-                        <span className="text-xl sm:text-3xl font-display font-bold text-emerald-400 block">{m.value}</span>
-                        <span className="text-xs text-text-dim">{m.label}</span>
-                      </div>
-                    ))}
+                  <div className="lg:col-span-4 bg-black/50 p-6 sm:p-8 rounded-3xl border border-white/[0.1] flex flex-col justify-between space-y-6 text-center shadow-2xl">
+                    <div className="flex justify-center">
+                      <Quote className={cn("w-10 h-10", theme.quoteIconColor)} />
+                    </div>
+                    <p className="text-sm sm:text-base italic text-paper/90 leading-relaxed">"{study.quote?.text}"</p>
+                    <div>
+                      <span className="font-display font-bold text-sm text-white block">{study.quote?.author}</span>
+                      <span className="text-xs text-text-dim">{study.quote?.role}</span>
+                    </div>
+                    <Link to={`/resources/case-studies/${study.slug}`} className="w-full block pt-2">
+                      <Button variant="glow" size="lg" className="w-full" icon={<ArrowRight className="w-4 h-4" />}>
+                        Read Full Study
+                      </Button>
+                    </Link>
                   </div>
-
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-semibold text-text-faint uppercase tracking-wider mr-2">Products Used:</span>
-                    {study.productsUsed.map((p) => (
-                      <Badge key={p} variant="indigo" size="sm">{p}</Badge>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="lg:col-span-4 bg-ink-2/80 p-6 rounded-l border border-white/[0.08] flex flex-col justify-between space-y-4">
-                  <Quote className="w-8 h-8 text-indigo-2/40" />
-                  <p className="text-sm italic text-paper leading-relaxed">
-                    "{study.quote?.text}"
-                  </p>
-                  <div className="pt-2 border-t border-white/[0.06]">
-                    <span className="font-bold text-xs text-paper block">{study.quote?.author}</span>
-                    <span className="text-[11px] text-text-faint">{study.quote?.role}</span>
-                  </div>
-                  <Link to={`/resources/case-studies/${study.slug}`} className="pt-2 block">
-                    <Button variant="secondary" size="sm" className="w-full justify-between group">
-                      <span>Read Full Study</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
                 </div>
               </div>
-            </Card>
-          ))}
+            );
+          })}
         </div>
       </section>
 

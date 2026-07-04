@@ -13,7 +13,7 @@ export const Leadership: React.FC = () => {
     <>
       <SEO
         title="Leadership Team — Meet the Founders | iEYAL Solutions"
-        description="Meet the hands-on founding team behind iEYAL Solutions: Dinesh Kumar (CEO), Haje Abudhahir (CTO), and Mohamed Rafiyudeen (COO)."
+        description="Meet the hands-on founding team behind iEYAL Solutions: Mohamed Rafiyudeen (Founder & CEO), Dinesh Kumar (Co-Founder, CTO), and Hajeabudhahir Syed (Co-Founder | VP Tech)."
       />
 
       <HeroSection

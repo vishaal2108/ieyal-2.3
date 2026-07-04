@@ -81,7 +81,6 @@ export const PRIMARY_NAV: NavItem[] = [
       { label: "Blog", href: "/resources/blog", description: "Practical guides on WhatsApp commerce & AI", icon: "BookOpen" },
       { label: "Case Studies", href: "/resources/case-studies", description: "Real results from 200+ paying customers", icon: "FileText" },
       { label: "Help Center", href: "/help", description: "Guides, FAQs, and product troubleshooting", icon: "HelpCircle" },
-      { label: "Press Kit", href: "/resources/press", description: "Logos, brand assets & company boilerplate", icon: "Download" },
     ],
   },
   {
@@ -127,7 +126,6 @@ export const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "Blog Insights", href: "/resources/blog" },
       { label: "Case Studies", href: "/resources/case-studies" },
       { label: "Help Center", href: "/help" },
-      { label: "Press & Media Kit", href: "/resources/press" },
       { label: "Partner Program", href: "/partners" },
       { label: "Technology Foundation", href: "/technology" },
     ],

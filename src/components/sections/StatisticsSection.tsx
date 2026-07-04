@@ -57,22 +57,22 @@ export const StatisticsSection: React.FC<StatisticsSectionProps> = ({
   subtitle = "Real businesses run on iEYAL every day. This isn't a pilot — it's a live, growing customer base.",
 }) => {
   return (
-    <section className={cn("py-16 sm:py-24 relative overflow-hidden", className)}>
+    <section className={cn("py-10 sm:py-14 relative overflow-hidden", className)}>
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
         {title && (
-          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-paper mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-paper mb-3">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-base sm:text-lg text-text-dim leading-relaxed">
+              <p className="text-sm sm:text-base text-text-dim leading-relaxed">
                 {subtitle}
               </p>
             )}
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {stats.map((stat, index) => {
             const theme = STATS_THEMES[index % STATS_THEMES.length];
 
@@ -84,7 +84,7 @@ export const StatisticsSection: React.FC<StatisticsSectionProps> = ({
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className={cn(
-                  "p-6 sm:p-7 rounded-2xl border transition-all duration-500 relative group overflow-hidden flex items-start gap-5",
+                  "p-4 sm:p-5 rounded-xl border transition-all duration-500 relative group overflow-hidden flex items-start gap-3.5",
                   theme.cardBg,
                   theme.borderColor,
                   theme.shadowColor
@@ -92,7 +92,7 @@ export const StatisticsSection: React.FC<StatisticsSectionProps> = ({
               >
                 {/* Left Icon Box (inspired by reference Image 2) */}
                 <div className={cn(
-                  "w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110",
+                  "w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110",
                   theme.iconBg
                 )}>
                   {theme.icon}
@@ -100,16 +100,16 @@ export const StatisticsSection: React.FC<StatisticsSectionProps> = ({
 
                 {/* Right Content Area */}
                 <div className="flex-1 min-w-0">
-                  <div className={cn("text-3xl sm:text-4xl font-display font-bold mb-1 tracking-tight", theme.numColor)}>
+                  <div className={cn("text-2xl sm:text-3xl font-display font-bold mb-0.5 tracking-tight", theme.numColor)}>
                     {stat.value}
                   </div>
                   
-                  <h3 className="text-base sm:text-lg font-display font-bold text-white mb-1.5 leading-snug">
+                  <h3 className="text-sm sm:text-base font-display font-bold text-white mb-1 leading-snug">
                     {stat.label}
                   </h3>
                   
                   {stat.description && (
-                    <p className="text-xs sm:text-sm text-text-dim leading-relaxed">
+                    <p className="text-xs text-text-dim leading-relaxed line-clamp-2">
                       {stat.description}
                     </p>
                   )}

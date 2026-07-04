@@ -42,47 +42,47 @@ export const SolutionsHub: React.FC = () => {
       />
 
       {/* Solutions Grid */}
-      <section className="py-12 md:py-20 max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-8 sm:py-14 max-w-site mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
           {SOLUTIONS_CONFIG.map((sol) => (
             <Card
               key={sol.id}
               variant="glass"
-              className="flex flex-col justify-between h-full border-white/[0.08] hover:border-indigo/40 group transition-all duration-300"
+              className="p-5 sm:p-6 flex flex-col justify-between h-full border-white/[0.08] hover:border-indigo/40 group transition-all duration-300"
             >
               <div>
-                <div className="w-14 h-14 rounded-l bg-indigo/15 border border-indigo/30 flex items-center justify-center mb-6">
+                <div className="w-11 h-11 rounded-xl bg-indigo/15 border border-indigo/30 flex items-center justify-center mb-4">
                   {getIcon(sol.id)}
                 </div>
 
-                <Badge variant="indigo" size="sm" className="mb-3">
+                <Badge variant="indigo" size="sm" className="mb-2">
                   {sol.name}
                 </Badge>
 
-                <h2 className="text-2xl font-display font-bold text-paper mb-3 group-hover:text-indigo-2 transition-colors">
+                <h2 className="text-lg sm:text-xl font-display font-bold text-paper mb-2 group-hover:text-indigo-2 transition-colors">
                   {sol.tagline}
                 </h2>
 
-                <p className="text-sm text-text-dim mb-6 leading-relaxed">
+                <p className="text-xs text-text-dim mb-4 leading-relaxed">
                   {sol.description}
                 </p>
 
-                <div className="space-y-3 mb-8 pt-4 border-t border-white/[0.06]">
-                  <h3 className="text-xs font-display font-semibold uppercase tracking-wider text-text-faint">
+                <div className="space-y-2 mb-6 pt-3 border-t border-white/[0.06]">
+                  <h3 className="text-[11px] font-display font-semibold uppercase tracking-wider text-text-faint">
                     Key Problems Solved:
                   </h3>
                   {sol.challenges.map((c, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs text-text">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <div key={idx} className="flex items-start gap-1.5 text-[11px] text-text leading-snug">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{c.problem} → <strong className="text-emerald-300">0% Commission Direct Ordering</strong></span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/[0.06]">
+              <div className="pt-3 border-t border-white/[0.06]">
                 <Link to={`/solutions/${sol.slug}`}>
-                  <Button variant="secondary" className="w-full justify-between group/btn">
+                  <Button variant="secondary" size="md" className="w-full justify-between group/btn">
                     <span>Explore {sol.name} Solution</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
@@ -94,13 +94,13 @@ export const SolutionsHub: React.FC = () => {
       </section>
 
       {/* Why General Tools Fail Section */}
-      <section className="py-16 bg-ink-2/40 border-y border-white/[0.06]">
+      <section className="py-10 sm:py-12 bg-ink-2/40 border-y border-white/[0.06]">
         <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl">
-          <Badge variant="cyan" className="mb-4">Why Specialization Matters</Badge>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-paper mb-6">
+          <Badge variant="cyan" className="mb-2">Why Specialization Matters</Badge>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-paper mb-3">
             Generic CRM Platforms Weren't Built for 10-Minute Takeaway Orders
           </h2>
-          <p className="text-base sm:text-lg text-text-dim leading-relaxed mb-8">
+          <p className="text-xs sm:text-sm text-text-dim leading-relaxed mb-5">
             When a hungry customer messages your restaurant at 8 PM, or a shopper asks for a dress size during a flash sale, they won't wait for an email support ticket or a multi-step web form. iEYAL brings catalog browsing, UPI checkout, and live order tracking right into their WhatsApp chat window in under 3 seconds.
           </p>
           <Link to="/contact">

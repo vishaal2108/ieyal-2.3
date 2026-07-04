@@ -42,7 +42,7 @@ export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }
       {/* Main Container with Breadcrumbs */}
       <main className="flex-1 flex flex-col w-full">
         {/* We place Breadcrumbs right below the navbar padding */}
-        <div className="pt-[72px]">
+        <div className="pt-[74px] sm:pt-[78px]">
           <Breadcrumbs />
         </div>
         

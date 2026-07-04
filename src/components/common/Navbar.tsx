@@ -56,23 +56,18 @@ export const Navbar: React.FC<{ onOpenDemo: () => void }> = ({ onOpenDemo }) => 
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
         scrolled
-          ? "bg-ink-2/85 backdrop-blur-lg border-b border-white/[0.08] shadow-lg py-3"
-          : "bg-transparent py-5"
+          ? "bg-ink-2/85 backdrop-blur-lg border-b border-white/[0.08] shadow-lg py-2.5"
+          : "bg-transparent py-3.5"
       )}
     >
       <nav aria-label="Main navigation" className="max-w-site mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-2.5 shrink-0 group">
+        <Link to="/" className="flex items-center shrink-0 group" aria-label="Go to Home page">
           <img
-            src={BRAND_LOGOS.icon}
-            alt="iEYAL Solutions Icon"
-            className="w-9 h-9 sm:w-10 sm:h-10 object-contain transition-transform duration-300 group-hover:scale-105"
+            src={BRAND_LOGOS.main}
+            alt="iEYAL Solutions Logo"
+            className="h-9 sm:h-10 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-lg sm:text-xl text-paper tracking-tight group-hover:text-indigo-2 transition-colors">
-              iEYAL <span className="text-indigo-2 font-normal">Solutions</span>
-            </span>
-          </div>
         </Link>
 
         {/* Desktop Nav Items */}

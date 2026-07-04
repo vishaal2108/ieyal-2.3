@@ -21,7 +21,6 @@ const Blog = React.lazy(() => import('@/pages/Blog').then(module => ({ default: 
 const BlogPostView = React.lazy(() => import('@/pages/Blog').then(module => ({ default: module.BlogPostView })));
 const CaseStudies = React.lazy(() => import('@/pages/CaseStudies').then(module => ({ default: module.CaseStudies })));
 const CaseStudyPostView = React.lazy(() => import('@/pages/CaseStudies').then(module => ({ default: module.CaseStudyPostView })));
-const PressKit = React.lazy(() => import('@/pages/PressKit').then(module => ({ default: module.PressKit })));
 const HelpCenter = React.lazy(() => import('@/pages/HelpCenter').then(module => ({ default: module.HelpCenter })));
 const Pricing = React.lazy(() => import('@/pages/Pricing').then(module => ({ default: module.Pricing })));
 const Contact = React.lazy(() => import('@/pages/Contact').then(module => ({ default: module.Contact })));
@@ -71,7 +70,6 @@ export default function App() {
           <Route path="/resources/blog/:postSlug" element={<BlogPostView />} />
           <Route path="/resources/case-studies" element={<CaseStudies />} />
           <Route path="/resources/case-studies/:studySlug" element={<CaseStudyPostView />} />
-          <Route path="/resources/press" element={<PressKit />} />
           <Route path="/help" element={<HelpCenter />} />
 
           {/* Pricing & Contact Routes */}

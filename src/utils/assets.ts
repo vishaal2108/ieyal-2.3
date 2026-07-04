@@ -35,7 +35,7 @@ export const FOUNDER_IMAGES = {
 
 export const PRODUCT_LOGOS = {
   ownchat: findImg(productsGlob, 'ownchat') || '/assets/products/ownchat.png',
-  owncart: findImg(productsGlob, 'owncart') || '/assets/products/owncart.png',
+  owncart: findImg(logosGlob, 'owncart.jpeg') || findImg(logosGlob, 'owncart') || findImg(productsGlob, 'owncart') || '/assets/logo/owncart.jpeg',
 };
 
 export const KIBO_MASCOTS = {

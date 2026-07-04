@@ -43,25 +43,25 @@ export const ProductsHub: React.FC = () => {
       />
 
       {/* 4 Products Deep Grid */}
-      <section className="py-12 md:py-20 max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-12 md:space-y-16">
+      <section className="py-8 md:py-14 max-w-site mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="space-y-8 md:space-y-12">
           {PRODUCTS_CONFIG.map((prod, idx) => {
             const isEven = idx % 2 === 0;
             return (
               <Card
                 key={prod.id}
                 variant="glass"
-                className="p-6 sm:p-10 lg:p-12 border-white/[0.08] hover:border-indigo/40 transition-all duration-300"
+                className="p-5 sm:p-6 lg:p-8 border-white/[0.08] hover:border-indigo/40 transition-all duration-300"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                  <div className={`lg:col-span-7 space-y-6 ${!isEven ? 'lg:order-2' : ''}`}>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                  <div className={`lg:col-span-7 space-y-4 ${!isEven ? 'lg:order-2' : ''}`}>
                     <div className="flex items-center gap-3">
-                      <div className="p-3 rounded-l bg-indigo/15 border border-indigo/30">
+                      <div className="p-2.5 rounded-l bg-indigo/15 border border-indigo/30">
                         {getIcon(prod.iconName)}
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <h2 className="text-2xl sm:text-3xl font-display font-bold text-paper">
+                          <h2 className="text-xl sm:text-2xl font-display font-bold text-paper">
                             {prod.name}
                           </h2>
                           <Badge variant={prod.status === 'Live' ? 'live' : 'indigo'} size="sm">
@@ -72,47 +72,47 @@ export const ProductsHub: React.FC = () => {
                       </div>
                     </div>
 
-                    <p className="text-base sm:text-lg text-text-dim leading-relaxed">
+                    <p className="text-sm sm:text-base text-text-dim leading-relaxed">
                       {prod.description}
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div className={`grid grid-cols-1 gap-3 pt-1 ${prod.features.length === 5 ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2'}`}>
                       {prod.features.map((feat, fIdx) => (
-                        <div key={fIdx} className="p-4 rounded-m bg-white/[0.03] border border-white/[0.06] space-y-1.5">
-                          <div className="flex items-center gap-2 text-paper font-display font-semibold text-sm">
-                            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <div key={fIdx} className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.06] space-y-1">
+                          <div className="flex items-center gap-1.5 text-paper font-display font-semibold text-xs">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                             <span>{feat.title}</span>
                           </div>
-                          <p className="text-xs text-text-dim leading-relaxed">{feat.description}</p>
+                          <p className="text-[11px] text-text-dim leading-snug line-clamp-2">{feat.description}</p>
                         </div>
                       ))}
                     </div>
 
-                    <div className="pt-4 flex flex-wrap gap-4 items-center">
+                    <div className="pt-2 flex flex-wrap gap-3 items-center">
                       <Link to={prod.href}>
-                        <Button variant="primary" icon={<ArrowRight className="w-4 h-4" />}>
+                        <Button variant="primary" size="md" icon={<ArrowRight className="w-4 h-4" />}>
                           Explore {prod.name} Features
                         </Button>
                       </Link>
                       <Link to="/contact">
-                        <Button variant="outline">Request Beta Access</Button>
+                        <Button variant="outline" size="md">Request Beta Access</Button>
                       </Link>
                     </div>
                   </div>
 
                   {/* Visual mockup banner */}
                   <div className={`lg:col-span-5 ${!isEven ? 'lg:order-1' : ''}`}>
-                    <div className="rounded-l bg-gradient-to-br from-indigo/20 via-ink-2 to-ink p-6 sm:p-8 border border-white/[0.1] text-center space-y-4">
-                      <div className="w-16 h-16 rounded-full bg-white/[0.08] flex items-center justify-center mx-auto mb-2 text-indigo-2">
+                    <div className="rounded-xl bg-gradient-to-br from-indigo/20 via-ink-2 to-ink p-5 sm:p-6 border border-white/[0.1] text-center space-y-3">
+                      <div className="w-12 h-12 rounded-full bg-white/[0.08] flex items-center justify-center mx-auto mb-1 text-indigo-2">
                         {getIcon(prod.iconName)}
                       </div>
-                      <h3 className="font-display font-bold text-xl text-paper">
+                      <h3 className="font-display font-bold text-lg text-paper">
                         {prod.name} in Action
                       </h3>
-                      <p className="text-xs sm:text-sm text-text-dim">
+                      <p className="text-xs text-text-dim leading-snug">
                         {prod.heroSupportingText}
                       </p>
-                      <div className="pt-4">
+                      <div className="pt-2">
                         <Badge variant="cyan">Official WhatsApp API Native</Badge>
                       </div>
                     </div>
@@ -125,14 +125,14 @@ export const ProductsHub: React.FC = () => {
       </section>
 
       {/* Comparison Matrix: iEYAL vs Fragmented Tools */}
-      <section className="py-16 bg-ink-2/50 border-y border-white/[0.06]">
+      <section className="py-10 sm:py-14 bg-ink-2/50 border-y border-white/[0.06]">
         <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <Badge variant="indigo" className="mb-4">The Architectural Advantage</Badge>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-paper mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <Badge variant="indigo" className="mb-2">The Architectural Advantage</Badge>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-paper mb-2">
               Why an Integrated Ecosystem Beats Standalone Tools
             </h2>
-            <p className="text-base text-text-dim">
+            <p className="text-xs sm:text-sm text-text-dim">
               See what happens when your chat, commerce, loyalty, and fulfillment share the exact same customer database.
             </p>
           </div>
@@ -141,31 +141,31 @@ export const ProductsHub: React.FC = () => {
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="border-b border-white/[0.1] bg-white/[0.03]">
-                  <th className="py-4 px-6 font-display font-semibold text-paper text-sm">Capability</th>
-                  <th className="py-4 px-6 font-display font-bold text-indigo-2 text-sm bg-indigo/10 border-x border-indigo/20">iEYAL Unified Suite</th>
-                  <th className="py-4 px-6 font-display font-medium text-text-faint text-sm">Fragmented Tool Stack</th>
+                  <th className="py-3 px-4 font-display font-semibold text-paper text-xs">Capability</th>
+                  <th className="py-3 px-4 font-display font-bold text-indigo-2 text-xs bg-indigo/10 border-x border-indigo/20">iEYAL Unified Suite</th>
+                  <th className="py-3 px-4 font-display font-medium text-text-faint text-xs">Fragmented Tool Stack</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/[0.06] text-sm text-text-dim">
+              <tbody className="divide-y divide-white/[0.06] text-xs text-text-dim">
                 <tr>
-                  <td className="py-4 px-6 font-medium text-paper">Customer Data Source</td>
-                  <td className="py-4 px-6 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ Single unified WhatsApp phone number profile</td>
-                  <td className="py-4 px-6 text-text-faint">✗ Siloed data across 4+ different login dashboards</td>
+                  <td className="py-3 px-4 font-medium text-paper">Customer Data Source</td>
+                  <td className="py-3 px-4 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ Single unified WhatsApp phone number profile</td>
+                  <td className="py-3 px-4 text-text-faint">✗ Siloed data across 4+ different login dashboards</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-6 font-medium text-paper">Checkout Experience</td>
-                  <td className="py-4 px-6 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ Instant 1-click UPI checkout inside chat (25%+ conversion)</td>
-                  <td className="py-4 px-6 text-text-faint">✗ Forces user to external website loading slowly (~2% conversion)</td>
+                  <td className="py-3 px-4 font-medium text-paper">Checkout Experience</td>
+                  <td className="py-3 px-4 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ Instant 1-click UPI checkout inside chat (25%+ conversion)</td>
+                  <td className="py-3 px-4 text-text-faint">✗ Forces user to external website loading slowly (~2% conversion)</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-6 font-medium text-paper">Loyalty & Cashback</td>
-                  <td className="py-4 px-6 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ Automated cashback notifications sent via WhatsApp</td>
-                  <td className="py-4 px-6 text-text-faint">✗ Forgotten paper punch cards or custom app downloads</td>
+                  <td className="py-3 px-4 font-medium text-paper">Loyalty & Cashback</td>
+                  <td className="py-3 px-4 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ Automated cashback notifications sent via WhatsApp</td>
+                  <td className="py-3 px-4 text-text-faint">✗ Forgotten paper punch cards or custom app downloads</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-6 font-medium text-paper">Aggregator Commissions</td>
-                  <td className="py-4 px-6 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ 0% commission on direct WhatsApp orders</td>
-                  <td className="py-4 px-6 text-text-faint">✗ 25%–30% commission paid on every marketplace order</td>
+                  <td className="py-3 px-4 font-medium text-paper">Aggregator Commissions</td>
+                  <td className="py-3 px-4 bg-indigo/[0.05] border-x border-indigo/20 font-medium text-emerald-300">✓ 0% commission on direct WhatsApp orders</td>
+                  <td className="py-3 px-4 text-text-faint">✗ 25%–30% commission paid on every marketplace order</td>
                 </tr>
               </tbody>
             </table>

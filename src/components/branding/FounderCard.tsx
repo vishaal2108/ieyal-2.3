@@ -37,22 +37,22 @@ export const FounderCard: React.FC<FounderCardProps> = ({ profile, className }) 
       </div>
 
       {/* Content details */}
-      <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3">
         <div>
           <div className="flex items-center justify-between gap-2 mb-1">
-            <h3 className="text-xl font-display font-bold text-paper group-hover:text-indigo-2 transition-colors">
+            <h3 className="text-lg font-display font-bold text-paper group-hover:text-indigo-2 transition-colors">
               {profile.name}
             </h3>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               {profile.linkedin && (
                 <a
                   href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 rounded-full bg-white/[0.05] hover:bg-indigo/20 text-text-dim hover:text-indigo-2 transition-colors"
+                  className="p-1 rounded-full bg-white/[0.05] hover:bg-indigo/20 text-text-dim hover:text-indigo-2 transition-colors"
                   title={`${profile.name} on LinkedIn`}
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3.5 h-3.5" />
                 </a>
               )}
               {profile.twitter && (
@@ -60,20 +60,20 @@ export const FounderCard: React.FC<FounderCardProps> = ({ profile, className }) 
                   href={profile.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 rounded-full bg-white/[0.05] hover:bg-cyan/20 text-text-dim hover:text-cyan transition-colors"
+                  className="p-1 rounded-full bg-white/[0.05] hover:bg-cyan/20 text-text-dim hover:text-cyan transition-colors"
                   title={`${profile.name} on X/Twitter`}
                 >
-                  <Twitter className="w-4 h-4" />
+                  <Twitter className="w-3.5 h-3.5" />
                 </a>
               )}
             </div>
           </div>
 
-          <span className="inline-block text-xs font-display font-semibold text-indigo-2 uppercase tracking-wider mb-3">
+          <span className="inline-block text-[11px] font-display font-semibold text-indigo-2 uppercase tracking-wider mb-2">
             {profile.role}
           </span>
 
-          <p className="text-sm text-text-dim leading-relaxed">
+          <p className="text-xs sm:text-sm text-text-dim leading-relaxed line-clamp-4">
             {profile.bio}
           </p>
         </div>

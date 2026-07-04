@@ -29,14 +29,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   centered = false,
 }) => {
   return (
-    <section className={cn("relative pt-8 sm:pt-10 md:pt-12 pb-6 sm:pb-8 overflow-hidden min-h-[calc(100vh-72px)] flex items-center justify-center", className)}>
+    <section className={cn("relative py-4 sm:py-6 lg:py-8 overflow-hidden min-h-[calc(100vh-78px)] lg:max-h-[calc(100vh-78px)] flex items-center justify-center", className)}>
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-tr from-indigo/20 via-violet/25 to-cyan/15 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute top-10 right-10 w-96 h-96 bg-violet-deep/40 rounded-full blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className={cn(
-          "grid gap-8 lg:gap-10 items-center",
+          "grid gap-6 lg:gap-8 items-center",
           visual && !centered ? "grid-cols-1 lg:grid-cols-12" : "grid-cols-1 text-center max-w-4xl mx-auto"
         )}>
           {/* Content side */}
@@ -44,7 +44,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, translateY: 20 }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className={cn("space-y-4 sm:space-y-5", visual && !centered ? "lg:col-span-7" : "")}
+            className={cn("space-y-3 sm:space-y-3.5", visual && !centered ? "lg:col-span-7" : "")}
           >
             {badge && (
               <div className={cn(centered ? "flex justify-center" : "")}>
@@ -54,22 +54,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             )}
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-paper tracking-tight leading-[1.08]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-paper tracking-tight leading-[1.08]">
               {heading}
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl font-medium text-text-dim leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl font-medium text-text-dim leading-relaxed">
               {subheading}
             </p>
 
             {supportingText && (
-              <p className="text-sm sm:text-base text-text-faint max-w-2xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-text-faint max-w-2xl leading-relaxed">
                 {supportingText}
               </p>
             )}
 
             {ctaGroup && (
-              <div className={cn("pt-2 flex flex-wrap items-center gap-4", centered ? "justify-center" : "")}>
+              <div className={cn("pt-1.5 flex flex-wrap items-center gap-3 sm:gap-4", centered ? "justify-center" : "")}>
                 {ctaGroup}
               </div>
             )}

@@ -31,7 +31,7 @@ export const SEO: React.FC<SEOProps> = ({
     "name": SITE_CONFIG.name,
     "alternateName": SITE_CONFIG.shortName,
     "url": SITE_CONFIG.url,
-    "logo": `${SITE_CONFIG.url}${BRAND_LOGOS.icon}`,
+    "logo": `${SITE_CONFIG.url}${BRAND_LOGOS.main}`,
     "description": SITE_CONFIG.description,
     "address": {
       "@type": "PostalAddress",

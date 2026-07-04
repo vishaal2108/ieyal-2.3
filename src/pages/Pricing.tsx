@@ -40,28 +40,28 @@ export const Pricing: React.FC = () => {
       />
 
       {/* Interactive ROI Savings Calculator */}
-      <section className="py-12 md:py-20 max-w-site mx-auto px-4 sm:px-6 lg:px-8">
-        <Card variant="glow" className="p-6 sm:p-10 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2 text-indigo-2 font-display font-semibold text-sm">
-                <Calculator className="w-5 h-5" />
+      <section className="py-8 sm:py-12 max-w-site mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-78px)] flex flex-col justify-center">
+        <Card variant="glow" className="p-4 sm:p-6 lg:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center gap-1.5 text-indigo-2 font-display font-semibold text-xs sm:text-sm">
+                <Calculator className="w-4 h-4" />
                 <span>Live Revenue ROI Calculator</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-paper">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-paper">
                 See How Much You Lose to Aggregators Every Month
               </h2>
 
-              <p className="text-sm sm:text-base text-text-dim">
+              <p className="text-xs sm:text-sm text-text-dim">
                 Move the sliders to match your current online takeaway or retail order volume.
               </p>
 
-              <div className="space-y-6 pt-2">
+              <div className="space-y-4 pt-1">
                 <div>
-                  <div className="flex justify-between text-sm font-medium mb-2">
+                  <div className="flex justify-between text-xs sm:text-sm font-medium mb-1.5">
                     <span className="text-paper">Monthly Online Orders / Inquiries:</span>
-                    <span className="text-indigo-2 font-bold font-display text-lg">{monthlyOrders.toLocaleString()} orders</span>
+                    <span className="text-indigo-2 font-bold font-display text-base">{monthlyOrders.toLocaleString()} orders</span>
                   </div>
                   <input
                     type="range"
@@ -70,14 +70,14 @@ export const Pricing: React.FC = () => {
                     step="50"
                     value={monthlyOrders}
                     onChange={(e) => setMonthlyOrders(Number(e.target.value))}
-                    className="w-full h-2 bg-ink rounded-lg appearance-none cursor-pointer accent-indigo"
+                    className="w-full h-1.5 bg-ink rounded-lg appearance-none cursor-pointer accent-indigo"
                   />
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-sm font-medium mb-2">
+                  <div className="flex justify-between text-xs sm:text-sm font-medium mb-1.5">
                     <span className="text-paper">Average Order Value (₹):</span>
-                    <span className="text-indigo-2 font-bold font-display text-lg">₹{avgOrderValue.toLocaleString()}</span>
+                    <span className="text-indigo-2 font-bold font-display text-base">₹{avgOrderValue.toLocaleString()}</span>
                   </div>
                   <input
                     type="range"
@@ -86,7 +86,7 @@ export const Pricing: React.FC = () => {
                     step="50"
                     value={avgOrderValue}
                     onChange={(e) => setAvgOrderValue(Number(e.target.value))}
-                    className="w-full h-2 bg-ink rounded-lg appearance-none cursor-pointer accent-indigo"
+                    className="w-full h-1.5 bg-ink rounded-lg appearance-none cursor-pointer accent-indigo"
                   />
                 </div>
               </div>
@@ -94,20 +94,20 @@ export const Pricing: React.FC = () => {
 
             {/* Savings Result Banner */}
             <div className="lg:col-span-5">
-              <div className="rounded-l bg-ink-2/90 border border-indigo/40 p-6 sm:p-8 text-center space-y-6 shadow-2xl relative overflow-hidden">
+              <div className="rounded-2xl bg-ink-2/90 border border-indigo/40 p-4 sm:p-6 text-center space-y-4 shadow-xl relative overflow-hidden">
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
 
                 <div>
-                  <span className="text-xs font-display font-semibold uppercase tracking-wider text-text-faint block mb-1">
+                  <span className="text-[10px] sm:text-xs font-display font-semibold uppercase tracking-wider text-text-faint block mb-0.5">
                     Estimated Monthly Savings with iEYAL
                   </span>
-                  <div className="text-4xl sm:text-5xl font-display font-bold text-emerald-400">
+                  <div className="text-3xl sm:text-4xl font-display font-bold text-emerald-400">
                     ₹{totalMonthlySavings.toLocaleString()}
-                    <span className="text-base text-text-dim font-normal block mt-1">/ month saved in profit</span>
+                    <span className="text-xs text-text-dim font-normal block mt-0.5">/ month saved in profit</span>
                   </div>
                 </div>
 
-                <div className="space-y-2.5 pt-4 border-t border-white/[0.08] text-xs sm:text-sm text-text-dim text-left">
+                <div className="space-y-1.5 pt-3 border-t border-white/[0.08] text-[11px] sm:text-xs text-text-dim text-left">
                   <div className="flex items-center justify-between">
                     <span>Aggregator Commission (25% saved):</span>
                     <strong className="text-emerald-300">+₹{aggregatorCommissionSaved.toLocaleString()}</strong>
@@ -118,9 +118,9 @@ export const Pricing: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-1">
                   <Link to="/contact" className="block">
-                    <Button variant="primary" size="lg" className="w-full">
+                    <Button variant="primary" size="md" className="w-full">
                       Lock in Your Beta Savings Now
                     </Button>
                   </Link>
@@ -132,53 +132,53 @@ export const Pricing: React.FC = () => {
       </section>
 
       {/* Product Suite Pricing Tiers */}
-      <section className="py-16 md:py-24 max-w-site mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06]">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Badge variant="violet" className="mb-4">Suite Access Tiers</Badge>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-paper mb-4">
+      <section className="py-8 sm:py-12 max-w-site mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/[0.06] min-h-[calc(100vh-78px)] flex flex-col justify-center">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
+          <Badge variant="violet" className="mb-2">Suite Access Tiers</Badge>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-paper mb-2">
             Transparent Access During Our Production Growth Phase
           </h2>
-          <p className="text-base text-text-dim">
+          <p className="text-xs sm:text-sm text-text-dim">
             Start with individual tools or activate the complete 4-product ecosystem under a single WhatsApp number.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {PRODUCTS_CONFIG.map((prod) => (
-            <Card key={prod.id} variant="glass" className="flex flex-col justify-between h-full p-6 border-white/[0.08] hover:border-indigo/40">
+            <Card key={prod.id} variant="glass" className="flex flex-col justify-between h-full p-4 sm:p-5 border-white/[0.08] hover:border-indigo/40 hover:-translate-y-1 transition-all shadow-md">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-display font-bold text-xl text-paper">{prod.name}</span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-display font-bold text-base text-paper">{prod.name}</span>
                   <Badge variant={prod.status === 'Live' ? 'live' : 'cyan'} size="sm">{prod.status}</Badge>
                 </div>
 
-                <div className="mb-6">
+                <div className="mb-4">
                   {prod.status === 'Live' ? (
                     <div>
-                      <span className="text-2xl font-display font-bold text-paper">Custom Plan</span>
-                      <p className="text-xs text-text-faint">Tailored to your WhatsApp messaging volume</p>
+                      <span className="text-xl font-display font-bold text-paper">Custom Plan</span>
+                      <p className="text-[10px] text-text-faint">Tailored to your WhatsApp messaging volume</p>
                     </div>
                   ) : (
                     <div>
-                      <span className="text-2xl font-display font-bold text-emerald-400">100% Free Access</span>
-                      <p className="text-xs text-text-faint">During our active Beta access window</p>
+                      <span className="text-xl font-display font-bold text-emerald-400">100% Free Access</span>
+                      <p className="text-[10px] text-text-faint">During our active Beta access window</p>
                     </div>
                   )}
                 </div>
 
-                <p className="text-xs sm:text-sm text-text-dim mb-6 line-clamp-2">
+                <p className="text-xs text-text-dim mb-4 line-clamp-2">
                   {prod.description}
                 </p>
 
-                <div className="space-y-2 mb-8 pt-4 border-t border-white/[0.06]">
+                <div className="space-y-1.5 mb-6 pt-3 border-t border-white/[0.06]">
                   {prod.features.slice(0, 3).map((feat, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-text">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span>{feat.title}</span>
+                    <div key={idx} className="flex items-center gap-1.5 text-[11px] text-text">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span className="truncate">{feat.title}</span>
                     </div>
                   ))}
-                  <div className="flex items-center gap-2 text-xs text-emerald-300 font-medium pt-1">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-[11px] text-emerald-300 font-medium pt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                     <span>0% Transaction Commission</span>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export const Pricing: React.FC = () => {
 
               <div>
                 <Link to="/contact" className="w-full">
-                  <Button variant={prod.status === 'Live' ? 'primary' : 'outline'} className="w-full">
+                  <Button variant={prod.status === 'Live' ? 'primary' : 'outline'} size="md" className="w-full text-xs">
                     {prod.status === 'Live' ? 'Request Pricing' : 'Claim Free Beta Access'}
                   </Button>
                 </Link>

@@ -63,11 +63,8 @@ export const Footer: React.FC<{ onOpenDemo: () => void }> = ({ onOpenDemo }) => 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-1 space-y-4">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <img src={BRAND_LOGOS.icon} alt="iEYAL Logo" className="w-9 h-9 object-contain" />
-              <span className="font-display font-bold text-lg text-paper tracking-tight group-hover:text-indigo-2 transition-colors">
-                iEYAL <span className="text-indigo-2 font-normal">Solutions</span>
-              </span>
+            <Link to="/" className="inline-flex items-center group" aria-label="Go to Home page">
+              <img src={BRAND_LOGOS.main} alt="iEYAL Solutions Logo" className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             </Link>
 
             <p className="text-xs sm:text-sm text-text-dim leading-relaxed">

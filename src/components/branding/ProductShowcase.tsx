@@ -140,21 +140,21 @@ export const ProductShowcase: React.FC<{ className?: string }> = ({ className })
   const currentTheme = PRODUCT_THEMES[activeStep];
 
   return (
-    <section className={cn("py-16 md:py-24 relative overflow-hidden", className)}>
+    <section className={cn("py-10 md:py-14 relative overflow-hidden", className)}>
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <Badge variant="indigo" className="mb-4">One Connected Flow</Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-paper mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+          <Badge variant="indigo" className="mb-3">One Connected Flow</Badge>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-paper mb-4">
             One Ecosystem. Every Step of Your Customer Journey.
           </h2>
-          <p className="text-base sm:text-lg text-text-dim leading-relaxed">
+          <p className="text-sm sm:text-base text-text-dim leading-relaxed">
             Most SMB tools solve one problem and leave you to stitch the rest together yourself. iEYAL is built differently: every product shares the same WhatsApp-native foundation, so your customer's journey never breaks — it just flows.
           </p>
         </div>
 
         {/* Stepper Navigation (Inspired by reference cards with glowing icon boxes & suitable themes) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8 lg:mb-12 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 lg:mb-8 relative z-10">
           {STEPS.map((s, index) => {
             const isActive = activeStep === index;
             const theme = PRODUCT_THEMES[index];
@@ -164,32 +164,32 @@ export const ProductShowcase: React.FC<{ className?: string }> = ({ className })
                 key={s.product}
                 onClick={() => setActiveStep(index)}
                 className={cn(
-                  "p-5 sm:p-6 rounded-2xl border text-left transition-all duration-300 relative overflow-hidden cursor-pointer flex flex-col justify-between h-full group",
+                  "p-3.5 sm:p-4 rounded-xl border text-left transition-all duration-300 relative overflow-hidden cursor-pointer flex flex-col justify-between h-full group",
                   isActive ? theme.activeCard : theme.inactiveCard
                 )}
               >
-                <div className="flex items-center justify-between gap-3 mb-5">
+                <div className="flex items-center justify-between gap-2.5 mb-3 sm:mb-4">
                   <div className={cn(
-                    "w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0",
+                    "w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shrink-0",
                     isActive ? theme.iconBoxActive : theme.iconBoxInactive
                   )}>
                     {getIcon(s.iconName)}
                   </div>
-                  <span className="text-xs font-display font-bold text-text-faint tracking-wider">
+                  <span className="text-[11px] font-display font-bold text-text-faint tracking-wider">
                     STEP 0{s.step}
                   </span>
                 </div>
 
                 <div>
-                  <div className="flex items-center gap-2.5 mb-1.5">
-                    <h3 className="text-xl font-display font-bold text-white group-hover:text-paper transition-colors tracking-tight">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-base sm:text-lg font-display font-bold text-white group-hover:text-paper transition-colors tracking-tight">
                       {s.product}
                     </h3>
-                    <span className={cn("text-[11px] px-2.5 py-0.5 rounded-full font-semibold uppercase tracking-wide", isActive ? theme.badgeBgActive : theme.badgeBgInactive)}>
+                    <span className={cn("text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide", isActive ? theme.badgeBgActive : theme.badgeBgInactive)}>
                       {s.badge}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-text-dim line-clamp-1 font-medium">{s.tagline}</p>
+                  <p className="text-[11px] sm:text-xs text-text-dim line-clamp-1 font-medium">{s.tagline}</p>
                 </div>
 
                 {/* Active indicator bar */}
@@ -213,59 +213,59 @@ export const ProductShowcase: React.FC<{ className?: string }> = ({ className })
             exit={{ opacity: 0, translateY: -15 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             className={cn(
-              "backdrop-blur-xl rounded-[28px] p-6 sm:p-8 lg:p-12 relative overflow-hidden border transition-colors duration-500",
+              "backdrop-blur-xl rounded-2xl p-5 sm:p-6 lg:p-8 relative overflow-hidden border transition-colors duration-500",
               currentTheme.panelBg
             )}
           >
             {/* Background decorative glow */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/[0.03] rounded-full blur-3xl -z-10 pointer-events-none" />
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-7 space-y-6">
-                <div className={cn("inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-xs font-semibold uppercase tracking-wider", currentTheme.pillBadge)}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+              <div className="lg:col-span-7 space-y-4 sm:space-y-5">
+                <div className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full border text-[11px] font-semibold uppercase tracking-wider", currentTheme.pillBadge)}>
                   Step {STEPS[activeStep].step}: {STEPS[activeStep].tagline}
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-white tracking-tight">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-white tracking-tight">
                   {STEPS[activeStep].product}: How It Works
                 </h3>
 
-                <p className="text-base sm:text-lg text-text leading-relaxed">
+                <p className="text-sm sm:text-base text-text leading-relaxed">
                   {STEPS[activeStep].whatHappens}
                 </p>
 
-                <div className="p-5 rounded-2xl bg-ink-2/90 border border-white/[0.08] flex items-start gap-3.5 shadow-md">
-                  <div className="p-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30">
-                    <CheckCircle2 className="w-5 h-5" />
+                <div className="p-3.5 sm:p-4 rounded-xl bg-ink-2/90 border border-white/[0.08] flex items-start gap-3 shadow-md">
+                  <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0 mt-0.5 border border-emerald-500/30">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-display font-bold uppercase tracking-wider text-text-dim mb-1">
+                    <h4 className="text-[11px] font-display font-bold uppercase tracking-wider text-text-dim mb-0.5">
                       Business Outcome
                     </h4>
-                    <p className="text-sm sm:text-base font-semibold text-emerald-300">
+                    <p className="text-xs sm:text-sm font-semibold text-emerald-300">
                       {STEPS[activeStep].businessOutcome}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-2 flex flex-wrap items-center gap-4">
+                <div className="pt-1.5 flex flex-wrap items-center gap-3">
                   <Link to={STEPS[activeStep].href}>
-                    <button className={cn("inline-flex items-center gap-2.5 font-display font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all duration-300 group/btn cursor-pointer", currentTheme.btnBg)}>
+                    <button className={cn("inline-flex items-center gap-2 font-display font-bold text-xs sm:text-sm px-5 py-3 rounded-xl transition-all duration-300 group/btn cursor-pointer", currentTheme.btnBg)}>
                       <span>Explore {STEPS[activeStep].product}</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1.5" />
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
                     </button>
                   </Link>
                   <Link to="/products">
-                    <Button variant="secondary" className="py-3.5 px-6 rounded-xl">View Complete Suite</Button>
+                    <Button variant="secondary" size="sm" className="py-3 px-5 rounded-xl text-xs sm:text-sm">View Complete Suite</Button>
                   </Link>
                 </div>
               </div>
 
               {/* Visual flow stepper diagram */}
-              <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 sm:p-7 rounded-2xl bg-ink-2/95 border border-white/[0.1] shadow-xl">
-                <div className="w-full space-y-4">
-                  <div className="text-center pb-3 border-b border-white/[0.08]">
-                    <span className="text-xs font-display font-bold uppercase tracking-widest text-text-dim">
+              <div className="lg:col-span-5 flex flex-col items-center justify-center p-4 sm:p-5 rounded-xl bg-ink-2/95 border border-white/[0.1] shadow-xl">
+                <div className="w-full space-y-3">
+                  <div className="text-center pb-2.5 border-b border-white/[0.08]">
+                    <span className="text-[11px] font-display font-bold uppercase tracking-widest text-text-dim">
                       Connected WhatsApp Journey
                     </span>
                   </div>
@@ -280,7 +280,7 @@ export const ProductShowcase: React.FC<{ className?: string }> = ({ className })
                         key={stepItem.product}
                         onClick={() => setActiveStep(idx)}
                         className={cn(
-                          "p-4 rounded-xl flex items-center justify-between transition-all cursor-pointer border",
+                          "p-3 rounded-lg flex items-center justify-between transition-all cursor-pointer border",
                           isCurrent
                             ? itemTheme.activeStage
                             : isPast
@@ -288,19 +288,19 @@ export const ProductShowcase: React.FC<{ className?: string }> = ({ className })
                             : "bg-white/[0.02] border-transparent text-text-faint hover:bg-white/[0.05]"
                         )}
                       >
-                        <div className="flex items-center gap-3.5">
+                        <div className="flex items-center gap-3">
                           <span className={cn(
-                            "w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 shadow-sm border",
+                            "w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 shadow-sm border",
                             isCurrent ? itemTheme.iconBoxActive : isPast ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-400" : "bg-white/10 border-white/10 text-text-faint"
                           )}>
                             {isPast ? "✓" : stepItem.step}
                           </span>
-                          <span className="font-display font-bold text-sm sm:text-base text-white">
+                          <span className="font-display font-bold text-xs sm:text-sm text-white">
                             {stepItem.product}
                           </span>
                         </div>
                         {isCurrent && (
-                          <span className={cn("text-xs font-bold px-2.5 py-1 rounded-md shadow-sm", itemTheme.badgeBgActive)}>
+                          <span className={cn("text-[10px] font-bold px-2 py-0.5 rounded shadow-sm", itemTheme.badgeBgActive)}>
                             Active Stage
                           </span>
                         )}

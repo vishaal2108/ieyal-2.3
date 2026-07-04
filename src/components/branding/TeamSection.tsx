@@ -11,22 +11,22 @@ export interface TeamSectionProps {
 
 export const TeamSection: React.FC<TeamSectionProps> = ({ className, condensed = false }) => {
   return (
-    <section className={cn("py-16 md:py-24 relative overflow-hidden", className)}>
+    <section className={cn("py-10 md:py-14 relative overflow-hidden", className)}>
       <div className="max-w-site mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <Badge variant="indigo" className="mb-4">Founder-Led Team</Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-paper mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+          <Badge variant="indigo" className="mb-3">Founder-Led Team</Badge>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-paper mb-4">
             Meet the Founding Team
           </h2>
-          <p className="text-base sm:text-lg text-text-dim leading-relaxed">
+          <p className="text-sm sm:text-base text-text-dim leading-relaxed">
             We don't outsource our core technology or rely on third parties. iEYAL is led by a hands-on founding team building from Thiruvarur, Tamil Nadu — for businesses everywhere.
           </p>
         </div>
 
         {/* Founder Cards Grid */}
         <div className={cn(
-          "grid gap-8",
+          "grid gap-4 sm:gap-5",
           condensed ? "grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto" : "grid-cols-1 md:grid-cols-3"
         )}>
           {FOUNDERS_CONFIG.map((founder) => (
