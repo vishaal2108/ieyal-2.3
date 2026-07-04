@@ -145,13 +145,13 @@ export const Home: React.FC = () => {
                   <ChevronLeft className="w-4 h-4 text-text-dim cursor-pointer hover:text-white transition-colors" />
                   <div className="relative">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-bold text-[11px] shadow-inner">
-                      KR
+                      OC
                     </div>
                     <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-[#1f2c34]" />
                   </div>
                   <div>
                     <div className="flex items-center gap-1">
-                      <span className="font-semibold text-[11px] text-paper">Kurinji Retails</span>
+                      <span className="font-semibold text-[11px] text-paper">Own Chat</span>
                       <CheckCircle2 className="w-3 h-3 text-emerald-400 fill-emerald-400/20" />
                     </div>
                     <span className="text-[9px] text-emerald-400 font-medium block">Official Meta Partner • 24/7 AI</span>
@@ -179,7 +179,7 @@ export const Home: React.FC = () => {
                     AI
                   </div>
                   <div className="bg-[#202c33] text-[#e9edef] rounded-2xl rounded-bl-none p-2.5 max-w-[85%] shadow-md border border-white/[0.04] relative group">
-                    <p>👋 Welcome to <strong className="text-white">Kurinji Retails</strong>! Your loyalty wallet balance is <strong className="text-emerald-400 font-semibold">₹240</strong>. Would you like to view today's festive catalog?</p>
+                    <p>👋 Welcome to <strong className="text-white">Own Chat</strong>! Your loyalty wallet balance is <strong className="text-emerald-400 font-semibold">₹240</strong>. Would you like to view today's festive catalog?</p>
                     <div className="flex justify-end items-center gap-1 mt-0.5 text-[8px] text-[#8696a0]">
                       <span>9:41 AM</span>
                     </div>
@@ -245,7 +245,7 @@ export const Home: React.FC = () => {
                   <Paperclip className="w-4 h-4 cursor-pointer hover:text-white transition-colors" />
                 </div>
                 <div className="flex-1 bg-[#2a3942] rounded-full py-1 px-2.5 text-[11px] text-[#8696a0] border border-white/[0.04] flex items-center justify-between">
-                  <span>Message Kurinji Retails...</span>
+                  <span>Message Own Chat...</span>
                 </div>
                 <div className="w-7 h-7 rounded-full bg-[#00a884] hover:bg-[#00bf96] flex items-center justify-center text-white shadow-md cursor-pointer transition-transform active:scale-95">
                   <Mic className="w-3.5 h-3.5" />
